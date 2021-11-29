@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_outer_classname = "MyMessage";
+
+//定义我们的参数对象
+message ParaMeter{
+  //通过枚举提供数据类型判断
+  enum ParamType{
+      intType = 0;
+      stringType = 1;
+  }
+  ParamType paraMeter_Type = 1;
+  //通过oneof完成一个节点只有一个数据对象的结构
+  oneof dataType{
+    int32 intData = 2;
+    string stringData = 3;
+  }
+}
+//定义我们传输的数据内容
+message Messsage{
+  //参数个数
+  int32 length = 1;
+  //方法名称
+  string methodName = 2;
+  //参数数组
+  repeated ParaMeter paraMeters = 3;
+}
+

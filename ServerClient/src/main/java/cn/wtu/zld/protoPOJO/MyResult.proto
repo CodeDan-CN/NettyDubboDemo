@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_outer_classname = "MyResult";
+
+message Result{
+  int32 state = 1;
+  User user = 2;
+}
+
+message User{
+  int32 userId = 1;
+  string userName = 2;
+}
